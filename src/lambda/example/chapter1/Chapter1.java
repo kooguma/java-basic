@@ -2,41 +2,42 @@ package lambda.example.chapter1;
 
 import java.util.List;
 import java.util.function.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Chapter1 {
 
     //1.predicate
-    public static Integer[] predicateBigger(List<Integer> array, int value) {
-        return (Integer[]) array.stream()
+    public static List<Integer> predicateBigger(List<Integer> array, int value) {
+        return array.stream()
                 .filter(i -> i > value)
-                .toArray();
+                .collect(Collectors.toList());
     }
 
     //2.predicate negate
-    public static Integer[] predicateSmaller(List<Integer> array, int value) {
-        return (Integer[]) array.stream()
-                .filter(((Predicate<Integer>) i -> i > value).negate())
-                .toArray();
+    public static List<Integer> predicateSmaller(List<Integer> array, int value) {
+        return array.stream()
+                .filter(((Predicate<Integer>) i -> i > value).negate().and(i -> i != value))
+                .collect(Collectors.toList());
     }
 
     //3.predicate and
-    public static Integer[] predicateBiggerAndSmaller(List<Integer> array, int low, int height) {
-        return (Integer[]) array.stream()
+    public static List<Integer> predicateBiggerAndSmaller(List<Integer> array, int low, int height) {
+        return array.stream()
                 .filter(((Predicate<Integer>) i -> i > low).and(i -> i < height))
-                .toArray();
+                .collect(Collectors.toList());
     }
 
     //4.predicate or
-    public static Integer[] predicateBiggerOrSmaller(List<Integer> array, int low, int height) {
-        return (Integer[]) array.stream()
+    public static List<Integer> predicateBiggerOrSmaller(List<Integer> array, int low, int height) {
+        return array.stream()
                 .filter(((Predicate<Integer>) i -> i < low).or(i -> i > height))
-                .toArray();
+                .collect(Collectors.toList());
     }
 
     //5.Consumer
     public static void consumerToUpperThenToLower(List<String> array) {
-        array.forEach(((Consumer<String>) s -> System.out.println(s.toUpperCase())).andThen(s -> System.out.println(s.toLowerCase())));
+        array.forEach(((Consumer<String>) s -> System.out.print(s.toUpperCase())).andThen(s -> System.out.print(s.toLowerCase())));
     }
 
     //6.Function andThen
@@ -63,19 +64,19 @@ public class Chapter1 {
     }
 
     //9.UnaryOperator 一元运算符
-    public static Integer[] unaryOperator(List<Integer> array) {
+    public static List<Integer> unaryOperator(List<Integer> array) {
         final UnaryOperator<Integer> uop = i -> i + 1;
-        return (Integer[]) array.stream()
+        return array.stream()
                 .map(uop)
-                .toArray();
+                .collect(Collectors.toList());
     }
 
     //10.BinaryOperator 二元运算符
-    public static Integer[] binaryOperator(List<Integer> array) {
+    public static List<Integer> binaryOperator(List<Integer> array) {
         final BinaryOperator<Integer> bop = (i1, i2) -> i1 * i2;
-        return (Integer[]) array.stream()
+        return array.stream()
                 .map(i -> bop.apply(i, i))
-                .toArray();
+                .collect(Collectors.toList());
     }
 
 
