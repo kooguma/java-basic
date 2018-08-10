@@ -63,19 +63,18 @@ public class Chapter1 {
     }
 
     //9.UnaryOperator 一元运算符
-    public static List<Integer> unaryOperator(List<Integer> array) {
+    public static Integer[] unaryOperator(List<Integer> array) {
         final UnaryOperator<Integer> uop = i -> i + 1;
-
-        array.forEach(integer -> {
-            System.out.println(uop.apply(integer));
-        });
+        return (Integer[]) array.stream()
+                .map(uop)
+                .toArray();
     }
 
     //10.BinaryOperator 二元运算符
     public static Integer[] binaryOperator(List<Integer> array) {
         final BinaryOperator<Integer> bop = (i1, i2) -> i1 * i2;
         return (Integer[]) array.stream()
-                .flatMap((Function<Integer, Stream<?>>) i -> Stream.of(bop.apply(i, i)))
+                .map(i -> bop.apply(i, i))
                 .toArray();
     }
 
