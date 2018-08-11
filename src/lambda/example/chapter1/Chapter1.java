@@ -3,7 +3,6 @@ package lambda.example.chapter1;
 import java.util.List;
 import java.util.function.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Chapter1 {
 

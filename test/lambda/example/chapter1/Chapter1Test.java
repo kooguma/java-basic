@@ -7,7 +7,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Supplier;
 
 import static lambda.example.chapter1.Chapter1.*;
 import static org.junit.Assert.assertArrayEquals;
