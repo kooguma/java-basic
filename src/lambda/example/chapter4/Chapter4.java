@@ -14,7 +14,7 @@ public class Chapter4 {
                 = album.getTracks()
                 .mapToInt(Track::getLength)
                 .summaryStatistics();
-        System.out.printf("Max: %d, Min: %d,Ave: %f,Sum %d",
+        System.out.printf("Max: %d, Min: %d, Ave: %f, Sum: %d",
                 trackLengthStats.getMax(),
                 trackLengthStats.getMin(),
                 trackLengthStats.getAverage(),
