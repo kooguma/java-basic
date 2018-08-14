@@ -27,7 +27,6 @@ public class SampleData {
 
     public static final Album differentOriginsAlbum = new Album("different origins album", asList(new Track("Acknowledgement", 467), new Track("Resolution", 442)), getThreeArtists());
 
-    public static Stream<Album> albums = Stream.of(aLoveSupreme);
 
     public static Stream<Artist> threeArtists() {
         return Stream.of(johnColtrane, johnLennon, theBeatles);
@@ -39,6 +38,10 @@ public class SampleData {
 
     public static List<Album> getThreeAlbums() {
         return Arrays.asList(aLoveSupreme, sampleShortAlbum, manyTrackAlbum);
+    }
+
+    public static List<Album> getTwoAlbums() {
+        return Arrays.asList(aLoveSupreme, differentOriginsAlbum);
     }
 
 }
