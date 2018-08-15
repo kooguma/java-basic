@@ -13,9 +13,6 @@ import java.util.stream.Stream;
 
 public class Chapter3 {
 
-
-
-
     //1.编写一个求和函数，计算流中所有数之和
     public static int addUp(IntStream numbers) {
         return numbers.reduce(0, (i1, i2) -> i1 + i2);
