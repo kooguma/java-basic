@@ -1,6 +1,11 @@
 package lambda.answers.chapter5;
 
+import lambda.demo.Album;
+import lambda.demo.Artist;
+import lambda.demo.Track;
+
 import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -24,13 +29,13 @@ public class Chapter5 {
     }
 
     //2.b 假设一个元素为单词的流,计算每个单词出现的次数。
-    public static Map<String,Long> countWordFrequency1(Stream<String> words){
+    public static Map<String,Long> countWordFrequency(Stream<String> words){
         return words.collect(Collectors.groupingBy(name -> name,Collectors.counting()));
     }
 
-    //2.c 用一个定制的收集器实现Collectors.groupingBy方法。
-    public static Map<String,Long> countWordFrequency2(Stream<String> words){
-        return words.collect(new GroupingBy<String,Long>(name -> name));
+    //2.c 用一个定制的收集器实现Collectors.groupingBy方法。 每个主艺术季对应的专辑数
+    public static Map<Artist,List<Album>> customGroupingBy(List<Album> albums){
+        return albums.stream().collect(new GroupingBy<>(Album::getMainMusician));
     }
 
 
