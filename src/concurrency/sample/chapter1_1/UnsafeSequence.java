@@ -1,4 +1,4 @@
-package concurrency.Introduction.chapter1_1;
+package concurrency.sample.chapter1_1;
 
 import concurrency.annotations.NotThreadSafe;
 
