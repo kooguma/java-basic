@@ -1,48 +1,26 @@
 package algorithms.leetcode;
 
+import datastructure.Collection;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ThreeSum {
 
-    public static class Tuple {
-        int a;
-        int b;
-        int c;
-
-        public Tuple(int a, int b, int c) {
-            this.a = a;
-            this.b = b;
-            this.c = c;
-        }
-
-        @Override
-        public boolean equals(Object object) {
-            if (object instanceof Tuple) {
-                Tuple tuple = (Tuple) object;
-                return tuple.a == this.a && tuple.b == this.b && tuple.c == this.c;
-            } else {
-                return false;
-            }
-        }
-
-        @Override
-        public String toString() {
-            return Arrays.toString(new int[]{a, b, c});
-        }
-    }
 
     //三重循环 O(n^3)
-    public static List<Tuple> solution1(int[] nums) {
-        List<Tuple> results = new ArrayList<>();
+    public static List<List<Integer>> solution1(int[] nums) {
+        List<List<Integer>> results = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
             for (int j = i + 1; j < nums.length; j++) {
                 for (int k = j + 1; k < nums.length; k++) {
                     if (nums[i] + nums[j] + nums[k] == 0) {
-                        Tuple tuple = new Tuple(nums[i], nums[j], nums[k]);
-                        if (!results.contains(tuple)) {
-                            results.add(tuple);
+                        List<Integer> set = Arrays.asList(nums[i], nums[j], nums[k]);
+                        Collections.sort(set);
+                        if (!results.contains(set)) {
+                            results.add(set);
                         }
                     }
                 }
