@@ -1,14 +1,19 @@
 package algorithms.leetcode;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class ThreeSumClosest {
 
     public int solution(int[] nums, int target) {
+
+        //边界条件
+        if (nums == null || nums.length < 3) {
+            return -1;
+        }
+
         Arrays.sort(nums);
         int min = nums[0] + nums[1] + nums[2];
+        //不必是 length-2
         for (int left = 0; left < nums.length - 2; left++) {
             int tmp = target - nums[left];
             int mid = left + 1;
