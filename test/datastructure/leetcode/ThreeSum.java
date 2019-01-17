@@ -10,7 +10,7 @@ import java.util.List;
 
 import static algorithms.leetcode.ThreeSum.*;
 
-public class ThreeSumTest {
+public class ThreeSum {
 
     private int[] nums1 = new int[]{-1, 0, 1, 2, -1, -4};
     private List<List<Integer>> expected;

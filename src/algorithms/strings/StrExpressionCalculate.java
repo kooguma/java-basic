@@ -1,4 +1,4 @@
-package algorithms;
+package algorithms.strings;
 
 import java.util.Comparator;
 import java.util.Stack;

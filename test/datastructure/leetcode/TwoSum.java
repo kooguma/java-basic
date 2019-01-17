@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static algorithms.leetcode.TwoSum.*;
 
-public class TwoSumTest {
+public class TwoSum {
 
     @Test
     public void test1() {
