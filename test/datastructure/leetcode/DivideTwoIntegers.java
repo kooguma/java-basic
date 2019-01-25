@@ -9,8 +9,8 @@ public class DivideTwoIntegers {
 
     @Test
     public void solutionTest() {
-        int actual = solution(9,3);
-        Assert.assertEquals(3,actual);
+        int actual = solution(10,3);
+        Assert.assertEquals(4,actual);
     }
 
 }
