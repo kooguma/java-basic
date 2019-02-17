@@ -7,6 +7,7 @@ public class LongestSubstringWithoutRepeatingCharacters {
     public static int solution(String s) {
         int[] map = new int[256];
         Arrays.fill(map, -1);
+        //2个变量i,j来维持一个新的子串,j不断移动，每当有新的字符加入，若有重复则移动i
         int len = 0, i = -1;
         for (int j = 0; j < s.length(); j++) {
             char c = s.charAt(j);

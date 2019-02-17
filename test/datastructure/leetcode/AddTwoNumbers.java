@@ -8,6 +8,5 @@ public class AddTwoNumbers {
     @Test
     public void solutionTest() {
 
-
     }
 }
