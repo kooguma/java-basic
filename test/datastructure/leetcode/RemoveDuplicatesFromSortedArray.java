@@ -15,3 +15,4 @@ public class RemoveDuplicatesFromSortedArray {
         Assert.assertEquals(2, actual);
     }
 }
+
