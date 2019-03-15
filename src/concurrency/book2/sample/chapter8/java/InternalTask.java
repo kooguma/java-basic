@@ -1,4 +1,4 @@
-package concurrency.book2.sample.chapter8;
+package concurrency.book2.sample.chapter8.java;
 
 /**
  * 用于线程池内部，不断从queue中取出某个runnable

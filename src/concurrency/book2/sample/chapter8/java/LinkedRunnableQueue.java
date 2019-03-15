@@ -1,4 +1,4 @@
-package concurrency.book2.sample.chapter8;
+package concurrency.book2.sample.chapter8.java;
 
 import java.util.LinkedList;
 
