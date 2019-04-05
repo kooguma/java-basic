@@ -79,6 +79,23 @@ public class ReverseNodesInKGroup {
         return first;
     }
 
+    /**
+     *
+     *  Dummy -> 1 -> 2 -> 3 -> 4 -> 5
+     *      p   c          n
+     *
+     *  Dummy -> 2 -> 3 -> 1 -> 4 -> 5
+     *      p   c     n    start
+     *
+     *  Dummy -> 3 -> 2 -> 1 -> 4 -> 5
+     *      p   c          start
+     *          n
+     *
+     *
+     * @param head
+     * @param k
+     * @return
+     */
     public static ListNode solution3(ListNode head, int k) {
 
         if (head == null || head.next == null || k < 2) return head;
@@ -100,6 +117,7 @@ public class ReverseNodesInKGroup {
 
             head = pre.next;
 
+            //插到尾巴后面
             while (pre.next != tail) {
                 temp = pre.next;
                 pre.next = temp.next;
