@@ -81,7 +81,7 @@ public class ReverseNodesInKGroup {
 
     /**
      *
-     *  Dummy -> 1 -> 2 -> 3 -> 4 -> 5
+     *  Dummy -> 1 -> 2 -> 3 -> 4 -> 5 k=3
      *      p   c          n
      *
      *  Dummy -> 2 -> 3 -> 1 -> 4 -> 5
