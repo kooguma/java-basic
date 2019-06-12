@@ -31,8 +31,10 @@ public class Backpack {
         for (int item = 1; item <= n; item++) {
             for (int weight = 1; weight <= c; weight++) {
                 if (w[item - 1] <= weight) {
+                    //装的进去 （装/不装）
                     dp[item][weight] = Math.max(dp[item - 1][weight - w[item - 1]] + v[item - 1], dp[item - 1][weight]);
                 } else {
+                    //装不进去'
                     dp[item][weight] = dp[item - 1][weight];
                 }
             }
