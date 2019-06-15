@@ -26,29 +26,26 @@ public class MinStack {
             int min = stackMin.peek();
             if (value <= min) {
                 stackMin.push(value);
-            } else {
-                stackData.push(value);
             }
-
+            stackData.push(value);
         }
     }
 
     public int pop() {
         if (stackData.isEmpty()) {
             throw new EmptyStackException();
-        }else {
+        } else {
             int value = stackData.peek();
             int min = stackMin.peek();
-            if(value == min){
+            if (value == min) {
                 return stackMin.pop();
-            }else {
-                return stackData.pop();
             }
+            return stackData.pop();
         }
     }
 
     public int getMin() {
-        if(stackMin.isEmpty()){
+        if (stackMin.isEmpty()) {
             throw new EmptyStackException();
         }
         return stackMin.peek();
