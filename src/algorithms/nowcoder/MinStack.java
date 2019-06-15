@@ -3,7 +3,7 @@ package algorithms.nowcoder;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
-//设计一个有getMin功能的栈
+//leetcode 155 设计一个有getMin功能的栈
 
 /**
  * 思路：
