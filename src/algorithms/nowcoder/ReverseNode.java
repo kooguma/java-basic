@@ -1,7 +1,7 @@
 package algorithms.nowcoder;
 
 //反转单链表，基本操作
-public class ReverseNodes {
+public class ReverseNode {
 
     public class Node {
         int value;
