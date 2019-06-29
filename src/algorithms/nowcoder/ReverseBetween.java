@@ -1,19 +1,14 @@
 package algorithms.nowcoder;
 
-import java.awt.print.Pageable;
+import common.ListNode;
 
 //leetcode 92 ReverseBetween 反转部分链表 from to
 public class ReverseBetween {
 
-    class ListNode {
-        int val;
-        ListNode next;
-    }
-
     /*
     条件: 1<=m<=n<=len
      */
-    public ListNode solution(ListNode head, int from, int to) {
+    public static ListNode solution1(ListNode head, int from, int to) {
         //1.先找 front tail
         ListNode cur = head;
         ListNode front = null;
@@ -27,23 +22,67 @@ public class ReverseBetween {
             cur = cur.next;
         }
 
-        cur = front == null ? head : front.next;
-        ListNode tmp = cur.next;
-        ListNode next = null;
-
-        while (tmp != tail) {
-            next = tmp.next;
-            tmp.next = cur;
-            cur = tmp;
-            tmp = next;
-        }
-
-        if(front != null){
-            front.next = cur;
+        //边界条件
+        if (from > to || from < 1 || to > len) {
             return head;
         }
 
-        return cur;
+        //2.反转链表
+        ListNode pre = front == null ? head : front.next;
+        ListNode newHead = pre.next;
+        pre.next = tail;
+        ListNode next = null;
+
+        while (newHead != tail) {
+            next = newHead.next;
+            newHead.next = pre;
+            pre = newHead;
+            newHead = next;
+        }
+
+        if (front != null) {
+            front.next = pre;
+            return head;
+        }
+
+        return pre;
+
     }
 
+    public static ListNode solution2(ListNode head, int from, int to) {
+        int len = 0;
+        ListNode node1 = head;
+        ListNode fpre = null;
+        ListNode tpos = null;
+
+        while (node1 != null) {
+            len++;
+            fpre = len == from - 1 ? node1 : fpre;
+            tpos = len == to + 1 ? node1 : tpos;
+            node1 = node1.next;
+        }
+
+        if (from > to || from < 1 || to > len) {
+            return head;
+        }
+
+        node1 = fpre == null ? head : fpre.next;
+        ListNode node2 = node1.next;
+        node1.next = tpos;
+        ListNode next = null;
+
+        while (node2 != tpos){
+            next = node2.next;
+            node2.next = node1;
+            node1 = node2;
+            node2 = next;
+        }
+
+        if( fpre != null){
+            fpre.next = node1;
+            return head;
+        }
+
+        return node1;
+    }
 }
