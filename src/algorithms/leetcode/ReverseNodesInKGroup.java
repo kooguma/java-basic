@@ -152,6 +152,7 @@ public class ReverseNodesInKGroup {
                 head = pre == null ? cur : head;
                 resign(pre, start, cur, next);
                 pre = start;
+                count = 0;
 
             }
             count++;
@@ -162,6 +163,7 @@ public class ReverseNodesInKGroup {
 
     /**
      *
+     *        pre  cur
      *  left start      end   right
      *         1 -> 2 -> 3 -> null
      *
@@ -173,14 +175,14 @@ public class ReverseNodesInKGroup {
      * @param right
      */
     private static void resign(ListNode left, ListNode start, ListNode end, ListNode right) {
-        ListNode head = start;
-        ListNode pre = left;
+        ListNode pre = start;
+        ListNode cur = start.next;
         ListNode next = null;
-        while (head != right) {
-            next = head.next;
-            head.next = pre;
-            pre = head;
-            head = next;
+        while (cur != right) {
+            next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
         }
         if(left != null){
             left.next = end;
