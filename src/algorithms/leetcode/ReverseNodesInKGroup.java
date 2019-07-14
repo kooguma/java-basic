@@ -130,9 +130,16 @@ public class ReverseNodesInKGroup {
 
     /**
      * k = 2
+     *
+     * 第一次翻转
      * head   cur    next
      * 1  ->  2  ->  3  ->  4  ->  null
+     * pre
      *
+     * 第二次翻转
+     * head                 cur   next
+     * 2  ->  1  ->  3  ->  4  -> null
+     * pre   start
      * @param head
      * @param k
      * @return
