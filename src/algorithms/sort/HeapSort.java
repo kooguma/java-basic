@@ -6,6 +6,7 @@ public class HeapSort {
     public static int[] heapSort(int nums[]) {
         int n = nums.length;
         buildHeap(nums, n);
+        //把最大的元素放在最后面继续建堆  
         for (int i = n - 1; i >= 0; i--) {
             int tmp = nums[0];
             nums[0] = nums[i];
@@ -16,7 +17,7 @@ public class HeapSort {
     }
 
 
-    //调整堆
+    //调整堆，对节点 i 做 heapify 操作
     private static void heapify(int nums[], int n, int i) {
         if (i >= n) return;
         //左孩子

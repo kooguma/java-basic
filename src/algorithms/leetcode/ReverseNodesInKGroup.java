@@ -8,8 +8,6 @@ public class ReverseNodesInKGroup {
      * <p>
      * for k = 2, you should return: 2->1->4->3->5
      * for k = 3, you should returnL 3->2->1->4->5
-     *
-     *
      */
     public static class ListNode {
         int val;
@@ -80,17 +78,15 @@ public class ReverseNodesInKGroup {
     }
 
     /**
-     *
-     *  Dummy -> 1 -> 2 -> 3 -> 4 -> 5 k=3
-     *      p   c          n
-     *
-     *  Dummy -> 2 -> 3 -> 1 -> 4 -> 5
-     *      p   c     n    start
-     *
-     *  Dummy -> 3 -> 2 -> 1 -> 4 -> 5
-     *      p   c          start
-     *          n
-     *
+     * Dummy -> 1 -> 2 -> 3 -> 4 -> 5 k=3
+     * p   c          n
+     * <p>
+     * Dummy -> 2 -> 3 -> 1 -> 4 -> 5
+     * p   c     n    start
+     * <p>
+     * Dummy -> 3 -> 2 -> 1 -> 4 -> 5
+     * p   c          start
+     * n
      *
      * @param head
      * @param k
@@ -131,4 +127,65 @@ public class ReverseNodesInKGroup {
 
         return dummy.next;
     }
+
+    /**
+     * k = 2
+     * head   cur    next
+     * 1  ->  2  ->  3  ->  4  ->  null
+     *
+     * @param head
+     * @param k
+     * @return
+     */
+    public static ListNode solution4(ListNode head, int k) {
+        if (k < 2) return head;
+        ListNode cur = head;
+        ListNode start = null;
+        ListNode pre = null;
+        ListNode next = null;
+        int count = 1;
+        while (cur != null) {
+            next = cur.next;
+            if (count != k) {
+                //第一次反转 pre = null
+                start = pre == null ? head : pre.next;
+                head = pre == null ? cur : head;
+                resign(pre, start, cur, next);
+                pre = start;
+
+            }
+            count++;
+            cur = next;
+        }
+        return head;
+    }
+
+    /**
+     *
+     *  left start      end   right
+     *         1 -> 2 -> 3 -> null
+     *
+     *  left  end         start  right
+     *       ->  3 -> 2 -> 1 ->  null
+     * @param left pre
+     * @param start head
+     * @param end
+     * @param right
+     */
+    private static void resign(ListNode left, ListNode start, ListNode end, ListNode right) {
+        ListNode head = start;
+        ListNode pre = left;
+        ListNode next = null;
+        while (head != right) {
+            next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        if(left != null){
+            left.next = end;
+        }
+        start.next = right;
+    }
+
 }
