@@ -1,7 +1,7 @@
 package algorithms.leetcode;
 
 //112 root to leaf
-public class PathSum1 {
+public class PathSum1{
 
     public static class TreeNode {
         int val;
