@@ -6,15 +6,16 @@ import java.util.List;
 public class BinaryTreeRightSideView {
 
     /**
+     * 找规律
      * Input: [1,2,3,null,5,null,4]
      * Output: [1, 3, 4]
      * Explanation:
      * <p>
-     * 1            <---
-     * /   \
-     * 2     3         <---
-     * \     \
-     * 5     4       <---
+     *       1            <---
+     *     /   \
+     *    2     3         <---
+     *    \      \
+     *    5       4       <---
      * <p>
      * res.size = 1 level =1
      * res.size = 2 level =2
@@ -32,7 +33,7 @@ public class BinaryTreeRightSideView {
 
     public List<Integer> solution(TreeNode root) {
         List<Integer> res = new ArrayList<>();
-        helper(root, 1, res);
+        helper(root, 0, res);
         return res;
     }
 
@@ -41,6 +42,7 @@ public class BinaryTreeRightSideView {
         if (res.size() == level) {
             res.add(root.val);
         }
+        //先右后左
         helper(root.right, level + 1, res);
         helper(root.left, level + 1, res);
     }

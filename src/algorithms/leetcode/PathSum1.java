@@ -1,6 +1,6 @@
 package algorithms.leetcode;
 
-//112 root to leaf
+//112 root to leaf 二中是否存在指定sum的路径
 public class PathSum1{
 
     public static class TreeNode {

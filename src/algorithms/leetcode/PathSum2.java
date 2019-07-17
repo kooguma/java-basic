@@ -3,7 +3,7 @@ package algorithms.leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
-//输出所有路径 root to leaf
+//输出所有路径 root to leaf 二叉树中是否存在指定sum的，从root到left路径
 public class PathSum2 {
 
     public class TreeNode {
@@ -29,7 +29,7 @@ public class PathSum2 {
         if (root.left == null && root.right == null) {
             //叶子节点
             if (root.val == sum) {
-                res.add(new ArrayList<>(path));
+                res.add(path);
 
             }
             return;
