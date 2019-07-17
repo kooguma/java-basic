@@ -18,7 +18,7 @@ public class InOrderUnRecur {
                 } else {
                     head = stack.pop();
                     System.out.println(head.val + " ");
-                    head = head.left;
+                    head = head.right;
                 }
             }
         }
