@@ -1,7 +1,7 @@
 package algorithms.leetcode;
 
 //8
-public class StringToInteger {
+public class   StringToInteger {
 
     /**
      * 需要考虑的问题：

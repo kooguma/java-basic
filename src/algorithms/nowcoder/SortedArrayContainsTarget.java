@@ -1,6 +1,6 @@
 package algorithms.nowcoder;
 
-public class SortedArraryContainsTarget {
+public class SortedArrayContainsTarget {
 
 
     /***
