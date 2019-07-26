@@ -3,7 +3,7 @@ package algorithms.leetcode;
 import java.util.LinkedList;
 import java.util.List;
 
-//2
+//2 链表 大数相加
 public class AddTwoNumbers {
 
     public static class ListNode {

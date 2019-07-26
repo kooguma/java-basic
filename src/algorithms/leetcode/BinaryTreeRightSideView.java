@@ -3,6 +3,7 @@ package algorithms.leetcode;
 import java.util.ArrayList;
 import java.util.List;
 
+// 二叉树右视图
 public class BinaryTreeRightSideView {
 
     /**
